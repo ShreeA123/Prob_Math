@@ -1,25 +1,22 @@
 import math
 
-def binomial(n, k, p):                                                                    # Define the binomial function
+def binomial(n, k, p):                                                                    #Define the binomial function
   # Calculate the binomial coefficient
   coeff = math.factorial(n) / (math.factorial(k) * math.factorial(n - k))
  
-  prob = coeff * pk * (1 - p)(n - k)                                                      # Calculate the probability
+  prob = coeff * pk * (1 - p)(n - k)                                                      #Calculate the probability
   # Return the result
   return prob
 
-# Define the parameters
-n = 40 # Number of questions
+n = 40 # Number of questions                                                               #Define the parameters
 p = 0.6 # Probability of knowing the answer
 k = 20 # Passing threshold
 
-# Initialize the sum
-sum = 0
+sum = 0                                                                                    #Initialize the sum
 
-# Loop over the possible outcomes
-for i in range(k, n + 1):
+
+for i in range(k, n + 1):                                                                  #Loop over the possible outcomes
   # Add the probability of each outcome to the sum
   sum += binomial(n, i, p)
 
-# Print the result
-print("The probability of passing the test is:", sum)
+print("The probability of passing the test is:", sum)                                      #Result
