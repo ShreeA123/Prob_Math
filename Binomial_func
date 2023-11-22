@@ -25,10 +25,8 @@ for i in range(k, n + 1):                                                       
 
 print("The probability of passing the test is:", sum)                                      #Result
 
+
 from numpy import random
-
-
-
 sns.distplot(random.binomial(n=10, p=0.5, size=1000), hist=True, kde=False)
 
-plt.show()
+plt.show()                                                                                #Plot the result
