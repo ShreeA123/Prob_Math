@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib 
+import matplotlib.pyplot as plt
+import seaborn as sns
 import math
 
 def binomial(n, k, p):                                                                    #Define the binomial function
@@ -24,8 +26,8 @@ for i in range(k, n + 1):                                                       
 print("The probability of passing the test is:", sum)                                      #Result
 
 from numpy import random
-import matplotlib.pyplot as plt
-import seaborn as sns
+
+
 
 sns.distplot(random.binomial(n=10, p=0.5, size=1000), hist=True, kde=False)
 
