@@ -1,3 +1,5 @@
+import numpy as np
+import matplotlib 
 import math
 
 def binomial(n, k, p):                                                                    #Define the binomial function
