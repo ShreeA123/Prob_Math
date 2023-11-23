@@ -5,7 +5,7 @@ import seaborn as sns
 import math
 
 def binomial(n, k, p):                                                                    #Define the binomial function
-   print("")                                                                                        
+   print("Probablity of x : p(x)={}C{} p{} q{}")                                                                                        
   coeff = math.factorial(n) / (math.factorial(k) * math.factorial(n - k))                 #Calculate the binomial coefficient
  
   prob = coeff * pk * (1 - p)(n - k)                                                      #Calculate the probability
