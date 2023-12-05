@@ -26,4 +26,5 @@ def bino_dist(n, x, p, μ, v):
             print(f"n={n}, x={x}, p={p}, μ={μ}, v={v}")
     else:
         print("Invalid format choice")
-    
+#Example
+bino_dist(40, 20, 0.6, 0, 0)
