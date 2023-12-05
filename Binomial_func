@@ -1,4 +1,3 @@
-
 import math
 
 def binomial(n, x, p):
@@ -6,3 +5,10 @@ def binomial(n, x, p):
     prob = coeff * p**x * (1 - p)**(n - x)
     return prob
 
+def bino_dist(n, x, p, μ, v):
+    supe = str.maketrans("nx"," ⁿˣ ")
+    sub = str.maketrans("nx"," ₙₓ ")
+    print("Enter the input in the format\n1.Enter values of n,p,x\n2.Enter values of  μ,v\n[ n:Number of trials,\tx:Required outcomes\n  p:Chance of success,\n  μ:Mean,\tv:Variance]")
+    print("Probablity of x : p(x)={}C{} p{} q{}".format("n".translate(supe), "x".translate(sub), "x".translate(supe), "n-x".translate(supe)))
+    ans = int(input("Choose the format"))
+    
