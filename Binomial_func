@@ -11,4 +11,19 @@ def bino_dist(n, x, p, μ, v):
     print("Enter the input in the format\n1.Enter values of n,p,x\n2.Enter values of  μ,v\n[ n:Number of trials,\tx:Required outcomes\n  p:Chance of success,\n  μ:Mean,\tv:Variance]")
     print("Probablity of x : p(x)={}C{} p{} q{}".format("n".translate(supe), "x".translate(sub), "x".translate(supe), "n-x".translate(supe)))
     ans = int(input("Choose the format"))
+    if ans == 1:
+        prob = binomial(n, x, p)
+        print(f"The probability of {x} successes in {n} trials is {prob}")
+        print(f"n={n}, x={x}, p={p}, μ={μ}, v={v}")
+    elif ans == 2:
+        q = μ / v
+        if q >= 1.0:
+            print("Error: q should be less than 1.0")
+        else:
+            prob = 1 - q
+            n = μ / p
+            print(f"The probability is {prob}, n={n}")
+            print(f"n={n}, x={x}, p={p}, μ={μ}, v={v}")
+    else:
+        print("Invalid format choice")
     
