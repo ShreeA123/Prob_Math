@@ -22,3 +22,7 @@ def bino1(μ,v):
         n = μ / p
         n = round(n)
         return n, p
+supe = str.maketrans("n","ⁿ")
+sub = str.maketrans("n","ₙ")
+supe1 = str.maketrans("n-x","ⁿ⁻ˣ")
+sub1 = str.maketrans("x","ₓ")
