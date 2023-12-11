@@ -22,33 +22,45 @@ def bino1(μ,v):
         n = μ / p
         n = round(n)
         return n, p
+
 supe = str.maketrans("n","ⁿ")
 sub = str.maketrans("n","ₙ")
 supe1 = str.maketrans("n-x","ⁿ⁻ˣ")
 sub1 = str.maketrans("x","ₓ")
 print("Enter the input in the format\n1.Enter values of n,p,x\n2.Enter values of  μ,v\n[ n:Number of trials,\tx:Required outcomes\n  p:Chance of success,\n  μ:Mean,\tv:Variance]")
 print("Probablity of x : p(x)={}C{} p{} q{}".format("n".translate(supe), "x".translate(sub1), "x".translate(supe1), "n-x".translate(supe1)))
+ans = int(input("Choose the format:"))
 if ans == 1:
     n = int(input("Enter the value for n:"))
-    x = int(input("Enter the value for x:"))
     p = float(input("Enter the value for p:"))
+    x = int(input("Enter the value for x:"))
     if p >= 1.0:
         print("Error")
-    else:    
+    else:
         prob = bino(n, x, p)
-        print(f"The probability of {x} successes in {n} trials is {prob}")
+        print(f"The probability of {x} successes in {n} trials is {prob}")    
         μ = n*p
         v = n*p*(1-p)
         print(f"Mean:{μ}\nVariance:{v}")
-        print(f"n={n}, x={x}, p={p}, μ={μ}, v={v}")
+        print("\nBinomial probablity distribution table:")
+        print("x\t||\tp(x)")
+        print("-"*35)
+        for x in range(n+1):
+            prob = bino(n, x, p)
+            print(f"{x}\t|\t{prob}")
+        print(f"n={n}, p={p}, μ={μ}, v={v}")    
 elif ans == 2:
     μ = float(input("Enter the value for μ:"))
     v = float(input("Enter the value for v:"))
     n, p = bino1(μ, v)
     if n is not None and p is not None:
-        x = int(input("Enter the value for x:"))
-        prob = bino(int(n), x, p)
-        print(f"The probability is {prob}, n={n}")
-        print(f"n={n}, x={x}, p={p}, μ={μ}, v={v}")
+        print("\nBinomial probablity distribution table:")
+        print("x\t||\tp(x)")
+        print("-"*35)
+        for i in range(n+1):
+            prob = bino(n, i, p)
+            print(f"{i}\t|\t{prob}")
+        print(f"n={n}, p={p}, μ={μ}, v={v}")
 else:
     print("Invalid format choice")
+
