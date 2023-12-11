@@ -4,31 +4,21 @@ import seaborn as sns
 
 import math
 
-def binomial(n, x, p):
+def bino(n, x, p):
+    if x > n:
+        print("Error: x cannot be greater than n")
+        return None
     coeff = math.factorial(n) / (math.factorial(x) * math.factorial(n - x))
     prob = coeff * p**x * (1 - p)**(n - x)
     return prob
 
-def bino_dist(n, x, p, μ, v):
-    supe = str.maketrans("nx"," ⁿˣ ")
-    sub = str.maketrans("nx"," ₙₓ ")
-    print("Enter the input in the format\n1.Enter values of n,p,x\n2.Enter values of  μ,v\n[ n:Number of trials,\tx:Required outcomes\n  p:Chance of success,\n  μ:Mean,\tv:Variance]")
-    print("Probablity of x : p(x)={}C{} p{} q{}".format("n".translate(supe), "x".translate(sub), "x".translate(supe), "n-x".translate(supe)))
-    ans = int(input("Choose the format"))
-    if ans == 1:
-        prob = binomial(n, x, p)
-        print(f"The probability of {x} successes in {n} trials is {prob}")
-        print(f"n={n}, x={x}, p={p}, μ={μ}, v={v}")
-    elif ans == 2:
-        q = μ / v
-        if q >= 1.0:
-            print("Error: q should be less than 1.0")
-        else:
-            prob = 1 - q
-            n = μ / p
-            print(f"The probability is {prob}, n={n}")
-            print(f"n={n}, x={x}, p={p}, μ={μ}, v={v}")
+def bino1(μ,v):
+    q = v / μ
+    if q >= 1.0:
+        print("Error")
+        return None, None
     else:
-        print("Invalid format choice")
-#Example
-bino_dist(40, 20, 0.6, 0, 0)
+        p = 1 - q
+        n = μ / p
+        n = round(n)
+        return n, p
