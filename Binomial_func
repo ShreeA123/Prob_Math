@@ -1,1 +1,22 @@
+import matplotlib.pyplot as plt
+import math
+
+def bino(n, x, p):
+    if x > n:
+        print("Error: x cannot be greater than n")
+        return None
+    coeff = math.factorial(n) / (math.factorial(x) * math.factorial(n - x))
+    prob = coeff * p**x * (1 - p)**(n - x)
+    return prob
+
+def bino1(μ,v):
+    q = v / μ
+    if q >= 1.0:
+        print("Error")
+        return None, None
+    else:
+        p = 1 - q
+        n = μ / p
+        n = round(n)
+        return n, p
 
